@@ -1,4 +1,6 @@
-﻿namespace CarNS
+﻿using System;
+
+namespace CarNS
 {
     public class Car
     {
@@ -40,5 +42,12 @@
             Odometer += milesAbleToTravel;
         }
 
+        public void AddGas(int newGasLevel)
+        {
+            if ((newGasLevel + GasTankLevel) > GasTankSize)
+                throw new ArgumentOutOfRangeException("new Gas level plus gastanklevel should be less than or equal to gastanksize.");
+
+            GasTankLevel += newGasLevel;
+        }
     }
 }
